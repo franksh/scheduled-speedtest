@@ -13,7 +13,7 @@ git clone https://github.com/franksh/scheduled-speedtest.git
 Then install the Python 3 requirements with
 
 ```bash
-pip3 install requirements.txt
+pip3 install -r requirements.txt
 ```
 
 ## Usage
