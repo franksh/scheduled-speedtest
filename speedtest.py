@@ -23,19 +23,18 @@ from config import config
 
 def run_speedtest():
     """ Runs the speedtest """
-    time = str(datetime.now())
+    time_now = str(datetime.now())
     st = pyspeedtest.SpeedTest()
     down = st.download()
     up = st.upload()
-    print("Time: {}\t Upload: {}\t Download: {}".format(time, up, down))
-    save_results(time, down, up)
+    print("Time: {}\t Download: {}\t Upload: {}".format(time_now, down, up))
+    save_results(time_now, down, up)
 
 
-def save_results(time, download_speed, upload_speed):
+def save_results(time_now, download_speed, upload_speed):
     """ Save results to file """
     filename = config['SAVE_FILE']
     # Writer header row if file does not exist
-    print(os.path.isfile(filename))
     if not os.path.isfile(filename):
         with open(filename, 'w') as csvfile:
             writer = csv.writer(csvfile, delimiter=',')
@@ -43,7 +42,7 @@ def save_results(time, download_speed, upload_speed):
     # Write results to file
     with open(filename, 'a') as csvfile:
         writer = csv.writer(csvfile, delimiter=',')
-        writer.writerow([time, download_speed, upload_speed])
+        writer.writerow([time_now, download_speed, upload_speed])
 
 
 if __name__ == '__main__':
