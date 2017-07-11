@@ -1,0 +1,2 @@
+pyspeedtest==1.2.7
+schedule==0.4.3
