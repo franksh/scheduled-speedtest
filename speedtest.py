@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
     print("Starting speedtest ...")
 
+    run_speedtest() # Run first job manually
     while True:
-        run_speedtest() # Run first job manually
         schedule.run_pending()
-        # time.sleep(1)
+        time.sleep(1)
